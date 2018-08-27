@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMetro", "AppMetro\AppMetro.csproj", "{66DC3562-3A3C-4DE1-A179-3D323A31023E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{46628D7B-331A-4182-8785-A73F45B8D56D} = {46628D7B-331A-4182-8785-A73F45B8D56D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Librairie", "Librairie\Librairie.csproj", "{46628D7B-331A-4182-8785-A73F45B8D56D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{66DC3562-3A3C-4DE1-A179-3D323A31023E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66DC3562-3A3C-4DE1-A179-3D323A31023E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66DC3562-3A3C-4DE1-A179-3D323A31023E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46628D7B-331A-4182-8785-A73F45B8D56D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46628D7B-331A-4182-8785-A73F45B8D56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46628D7B-331A-4182-8785-A73F45B8D56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46628D7B-331A-4182-8785-A73F45B8D56D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
