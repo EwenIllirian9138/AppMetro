@@ -12,8 +12,14 @@ namespace Librairie
             LineDetails = new List<ChampApiRoutes>();
         }
 
-        public string ArretName { get; private set; }
+        public string ArretName {
+            get;
+            private set;
+        }
 
-        public List<ChampApiRoutes> LineDetails { get; private set; }
+        public List<ChampApiRoutes> LineDetails {
+            get;
+            private set;
+        }
     }
 }

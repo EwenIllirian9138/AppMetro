@@ -4,20 +4,30 @@ using System.Linq;
 using Newtonsoft.Json;
 using Librairie;
 
-namespace AppMetro
+namespace Librairie
 {
     public class Station
     {
-        RequestAPI requestApi = new RequestAPI();
-        public void Finalstatus ()
+        private IApiMetro _IApiMetro;
+
+        public Station (IApiMetro IApiMetro)
         {
-            string resultReponse = requestApi.Request("https://data.metromobilite.fr/api/linesNear/json?y=45.185270&x=5.727231&dist=500&details=true");
-            List<ChampApi> result = formatStaionJson(resultReponse);
-            List<ArretAndLineDetails> finalResult = StationList(result);
-            DisplayStationOrder(finalResult);
+            this._IApiMetro = IApiMetro;
         }
 
-        public List<ChampApi> formatStaionJson(string responseJson)
+        public Station()
+            : this(new RequestAPI())
+        {
+        }
+
+        public List<ArretAndLineDetails> Finalstatus ()
+        {
+            string resultReponse = _IApiMetro.Request("https://data.metromobilite.fr/api/linesNear/json?y=45.185270&x=5.727231&dist=500&details=true");
+            List<ChampApi> result = formatStaionJson(resultReponse);
+            return StationList(result);
+        }
+
+        private List<ChampApi> formatStaionJson(string responseJson)
         {
             List<ChampApi> stations = new List<ChampApi>();
 
@@ -26,7 +36,7 @@ namespace AppMetro
             return stations;
         }
 
-        public List<ChampApiRoutes> formatDetailJson(string responseJson)
+        private List<ChampApiRoutes> formatDetailJson(string responseJson)
         {
             List<ChampApiRoutes> ligneDetail = new List<ChampApiRoutes>();
             ligneDetail = JsonConvert.DeserializeObject<List<ChampApiRoutes>>(responseJson);
@@ -34,7 +44,7 @@ namespace AppMetro
             return ligneDetail;
         }
 
-        public List<ArretAndLineDetails> StationList(List<ChampApi> originalData)
+        private List<ArretAndLineDetails> StationList(List<ChampApi> originalData)
         {
             List<ArretAndLineDetails> result = new List<ArretAndLineDetails>();
             foreach (ChampApi arret in originalData)
@@ -53,12 +63,11 @@ namespace AppMetro
                     if (!string.IsNullOrEmpty(linesForRequest))
                     {
                         string url = string.Format("https://data.metromobilite.fr/api/routers/default/index/routes?codes={0}", linesForRequest);
-                        string resultReponse = requestApi.Request(url);
+                        string resultReponse = _IApiMetro.Request(url);
                         newArret.LineDetails.AddRange(formatDetailJson(resultReponse));
                     }
                 }
             }            
-
             return result;
         }
 
@@ -85,19 +94,6 @@ namespace AppMetro
                     result.Add(Ligne);
                 }
             }
-        }
-
-        public void DisplayStationOrder (List<ArretAndLineDetails> ListStation)
-        {
-            foreach(ArretAndLineDetails station in ListStation)
-            {
-                Console.WriteLine(station.ArretName);
-
-                foreach(ChampApiRoutes ligne in station.LineDetails)
-                {
-                    Console.WriteLine(string.Format("{0}: {1}, {2}", ligne.ShortName, ligne.Type, ligne.Mode));
-                }
-            }
-        }
+        }       
     }
 }

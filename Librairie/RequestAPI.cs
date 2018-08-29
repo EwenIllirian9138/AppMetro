@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Librairie
 {
-    public class RequestAPI
+    public class RequestAPI : IApiMetro
     {
 
         public string Request(string url)

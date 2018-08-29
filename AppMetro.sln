@@ -10,6 +10,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMetro", "AppMetro\AppMet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Librairie", "Librairie\Librairie.csproj", "{46628D7B-331A-4182-8785-A73F45B8D56D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMetroTestUnit", "AppMetroTestUnit\AppMetroTestUnit.csproj", "{6757822D-9DFA-43D9-8322-105923D29729}"
+	ProjectSection(ProjectDependencies) = postProject
+		{66DC3562-3A3C-4DE1-A179-3D323A31023E} = {66DC3562-3A3C-4DE1-A179-3D323A31023E}
+		{46628D7B-331A-4182-8785-A73F45B8D56D} = {46628D7B-331A-4182-8785-A73F45B8D56D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMetroWpf", "AppMetroWpf\AppMetroWpf.csproj", "{415759B6-A414-48B5-ACDD-501BAC58D839}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +32,14 @@ Global
 		{46628D7B-331A-4182-8785-A73F45B8D56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46628D7B-331A-4182-8785-A73F45B8D56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46628D7B-331A-4182-8785-A73F45B8D56D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6757822D-9DFA-43D9-8322-105923D29729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6757822D-9DFA-43D9-8322-105923D29729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6757822D-9DFA-43D9-8322-105923D29729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6757822D-9DFA-43D9-8322-105923D29729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{415759B6-A414-48B5-ACDD-501BAC58D839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{415759B6-A414-48B5-ACDD-501BAC58D839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{415759B6-A414-48B5-ACDD-501BAC58D839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{415759B6-A414-48B5-ACDD-501BAC58D839}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
