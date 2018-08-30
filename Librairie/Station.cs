@@ -23,11 +23,18 @@ namespace Librairie
         public List<ArretAndLineDetails> Finalstatus ()
         {
             string resultReponse = _IApiMetro.Request("https://data.metromobilite.fr/api/linesNear/json?y=45.185270&x=5.727231&dist=500&details=true");
-            List<ChampApi> result = formatStaionJson(resultReponse);
+            List<ChampApi> result = formatStationJson(resultReponse);
             return StationList(result);
         }
 
-        private List<ChampApi> formatStaionJson(string responseJson)
+        public List<ArretAndLineDetails> FinalstatusDynamique(String latitude, String longitude, String rayon)
+        {
+            string resultReponse = _IApiMetro.Request(String.Format("https://data.metromobilite.fr/api/linesNear/json?y={0}x={1}&dist={2}&details=true",latitude, longitude, rayon));
+            List<ChampApi> result = formatStationJson(resultReponse);
+            return StationList(result);
+        }
+
+        private List<ChampApi> formatStationJson(string responseJson)
         {
             List<ChampApi> stations = new List<ChampApi>();
 
