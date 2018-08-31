@@ -6,46 +6,71 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using Librairie;
 using System.Windows;
+using System.Windows.Input;
+using System.ComponentModel;
 
 namespace AppMetroWpf.ViewModel
 {
-    public class MetroViewModel
+    public class MetroViewModel : INotifyPropertyChanged
     {
+        Station _stationsData;
+
         public MetroViewModel()
         {
-            Latitude = " " ;
-            Longitude = " ";
-            Rayon = " ";
-            Station stationsData = new Station();
-            List<ArretAndLineDetails> result = stationsData.FinalstatusDynamique(Latitude,Longitude,Rayon);
+            //Valeur par défaut
+            this.Latitude = "45.185270";
+            this.Longitude = "5.727231";
+            this.Rayon = "500";
+            Request = new RelayCommand(DoRequest);
+            _stationsData = new Station();
+            DoRequest();
+        }
+
+        private void DoRequest()
+        {
+            List<ArretAndLineDetails> result = _stationsData.FinalstatusDynamique(Latitude, Longitude, Rayon);
             DataLoop = new ObservableCollection<ArretAndLineDetails>(result);
-        }        
+            RaisePropertyChanged("DataLoop");
+        }
 
         public ObservableCollection<ArretAndLineDetails> DataLoop
         {
             get;
             set;
         }
-        public void Button1(object sender, RoutedEventArgs e)
-        {
-            String latitude = Latitude;
-            String longitude = Longitude;
-            String rayon = Rayon;
-        }
-        public String Latitude
+       
+        public string Latitude
         {
             get;
             set;
         }
-        public String Longitude
+
+        public string Longitude
+        {
+            get; 
+            set;
+        }
+
+        public string Rayon
         {
             get;
             set;
         }
-        public String Rayon
+
+        public ICommand Request
         {
             get;
             set;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
         }
     }
 }

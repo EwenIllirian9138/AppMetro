@@ -18,12 +18,21 @@ namespace Librairie
         public string Color { get; set; }
 
         [JsonProperty("texteColor")]
-        public string TexteColor { get; set; }
+        public string TexteColor {get; set;}
 
         [JsonProperty("mode")]
         public string Mode { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }
+
+        public string RealColor
+    {
+        get
+        {
+            return "#" + Color;
+        }
     }
+    }
+
 }

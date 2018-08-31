@@ -8,10 +8,10 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel HorizontalAlignment="Center">
-            <Button Command="{Binding Button1}" Height="23" Margin="140,14,0,0" Name="search" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76"></Button>
+            <Button Command="{Binding Request}" Height="23" Margin="140,14,0,0" Name="search" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76"></Button>
             <TextBox Text="{Binding Path=Latitude}" Height="23" HorizontalAlignment="Left" Margin="8,14,0,0" Name="Latitude" VerticalAlignment="Top" Width="127"></TextBox>
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="8,14,0,0" Name="Longitude" VerticalAlignment="Top" Width="127">Longitude</TextBox>
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="8,14,0,0" Name="Rayon" VerticalAlignment="Top" Width="127">Rayon</TextBox>
+            <TextBox Text="{Binding Path=Longitude}" Height="23" HorizontalAlignment="Left" Margin="8,14,0,0" Name="Longitude" VerticalAlignment="Top" Width="127"></TextBox>
+            <TextBox Text="{Binding Path=Rayon}" Height="23" HorizontalAlignment="Left" Margin="8,14,0,0" Name="Rayon" VerticalAlignment="Top" Width="127"></TextBox>
         </StackPanel>
         <StackPanel HorizontalAlignment = "Left">
             <ItemsControl ItemsSource = "{Binding Path = DataLoop}">
@@ -23,7 +23,7 @@
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation = "Horizontal">
-                                                <TextBlock Text="{Binding Path= Id}" Background="{Binding Path=Color}" Width= "Auto" Margin="4 6 4 6"/>
+                                                <TextBlock Text="{Binding Path= Id}" Background="{Binding Path=RealColor}" Width= "Auto" Margin="4 6 4 6"/>
                                                 <TextBlock Text="{Binding Path= Mode}" Width= "Auto" Margin="4 6 4 6"/>
                                         </StackPanel>
                                         </DataTemplate>

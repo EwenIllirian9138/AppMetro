@@ -9,9 +9,6 @@ namespace AppMetroWpf.Model
 {
     public class DataMetro : ChampApiRoutes
     {
-        private static void Display (Station station)
-        {
-            station.Finalstatus();
-        }
+
     }
 }
