@@ -33,6 +33,20 @@ namespace Librairie
             return "#" + Color;
         }
     }
+        //public Uri Image
+        //{
+        //    get
+        //    {
+        //        if(Mode == "BUS")
+        //        {
+        //            return new Uri(@"/Image/icons8-trolleybus-48.png", UriKind.RelativeOrAbsolute);
+        //        }
+        //        else
+        //        {
+        //            return new Uri(@"/Image/icons8-tram-2-48.png", UriKind.RelativeOrAbsolute);
+        //        }
+        //    }
+        //}
     }
 
 }

@@ -103,12 +103,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Librairie\Librairie.csproj">
       <Project>{46628D7B-331A-4182-8785-A73F45B8D56D}</Project>
       <Name>Librairie</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Image\icons8-tram-48.png" />
+    <Resource Include="Image\icons8-trolleybus-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

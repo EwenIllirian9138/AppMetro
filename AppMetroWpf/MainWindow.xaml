@@ -6,7 +6,9 @@
         xmlns:viewData="clr-namespace:AppMetroWpf.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <ScrollViewer>
     <Grid>
         <viewData:MetroView x:Name= "MetroViewControl" Loaded="MetroViewControl_Loaded"/>
     </Grid>
+    </ScrollViewer>
 </Window>

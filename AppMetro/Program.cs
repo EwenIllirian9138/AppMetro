@@ -10,7 +10,7 @@ namespace AppMetro
         static void Main(string[] args)
         {
             Station stationsData = new Station();
-            List<ArretAndLineDetails> result = stationsData.Finalstatus();
+            List<ArretAndLineDetails> result = stationsData.FinalstatusDynamique(45.185270, 5.727231, 500);
             DisplayStationOrder(result);
         }
 

@@ -18,9 +18,9 @@ namespace AppMetroWpf.ViewModel
         public MetroViewModel()
         {
             //Valeur par défaut
-            this.Latitude = "45.185270";
-            this.Longitude = "5.727231";
-            this.Rayon = "500";
+            this.Latitude = 45.185270;
+            this.Longitude = 5.727231;
+            this.Rayon = 500;
             Request = new RelayCommand(DoRequest);
             _stationsData = new Station();
             DoRequest();
@@ -39,19 +39,19 @@ namespace AppMetroWpf.ViewModel
             set;
         }
        
-        public string Latitude
+        public double Latitude
         {
             get;
             set;
         }
 
-        public string Longitude
+        public double Longitude
         {
             get; 
             set;
         }
 
-        public string Rayon
+        public int Rayon
         {
             get;
             set;

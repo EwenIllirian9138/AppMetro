@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using Librairie;
+using System.Globalization;
 
 namespace Librairie
 {
@@ -27,9 +28,10 @@ namespace Librairie
         //    return StationList(result);
         //}
 
-        public List<ArretAndLineDetails> FinalstatusDynamique(String latitude, String longitude, String rayon)
+        public List<ArretAndLineDetails> FinalstatusDynamique(double latitude, double longitude, int rayon)
         {
-            string resultReponse = _IApiMetro.Request(String.Format("https://data.metromobilite.fr/api/linesNear/json?y={0}&x={1}&dist={2}&details=true",latitude, longitude, rayon));
+            CultureInfo invC = CultureInfo.InvariantCulture;
+            string resultReponse = _IApiMetro.Request(String.Format(invC,"https://data.metromobilite.fr/api/linesNear/json?y={0}&x={1}&dist={2}&details=true",latitude, longitude, rayon));
             List<ChampApi> result = formatStationJson(resultReponse);
             return StationList(result);
         }

@@ -21,7 +21,7 @@ namespace AppMetroTestUnit
 
 
             Station test = new Station(mockIApiMetro.MockObject);
-            List<ArretAndLineDetails> result = test.Finalstatus();
+            List<ArretAndLineDetails> result = test.FinalstatusDynamique(45.185270, 5.727231, 500);
 
             Assert.AreEqual(2, result.Count);
             Assert.AreEqual("GRENOBLE, CASERNE DE BONNE", result[0].ArretName);
